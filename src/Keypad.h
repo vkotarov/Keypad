@@ -42,9 +42,10 @@
 #include "WProgram.h"
 #endif
 
+#define INPUT_PULLUP INPUT_PULLUP
 // bperrybap - Thanks for a well reasoned argument and the following macro(s).
 // See http://arduino.cc/forum/index.php/topic,142041.msg1069480.html#msg1069480
-#if !(defined(INPUT_PULLUP) || (ARDUINO_API_VERSION >= 10000))
+#ifndef INPUT_PULLUP
 #warning "Using  pinMode() INPUT_PULLUP AVR emulation"
 #define INPUT_PULLUP 0x2
 #define pinMode(_pin, _mode) _mypinMode(_pin, _mode)
