@@ -32,7 +32,7 @@
 #include "Keypad.h"
 
 // <<constructor>> Allows custom keymap, pin configuration, and keypad sizes.
-Keypad::Keypad(char *userKeymap, byte *row, byte *col, byte numRows, byte numCols) {
+Keypad::Keypad(const char *userKeymap, const byte *row, const byte *col, byte numRows, byte numCols) {
 	rowPins = row;
 	columnPins = col;
 	sizeKpd.rows = numRows;
@@ -50,7 +50,7 @@ Keypad::Keypad(char *userKeymap, byte *row, byte *col, byte numRows, byte numCol
 }
 
 // Let the user define a keymap - assume the same row/column count as defined in constructor
-void Keypad::begin(char *userKeymap) {
+void Keypad::begin(const char *userKeymap) {
     keymap = userKeymap;
 }
 

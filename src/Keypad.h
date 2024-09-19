@@ -85,7 +85,7 @@ typedef struct {
 class Keypad : public Key {
 public:
 
-	Keypad(char *userKeymap, byte *row, byte *col, byte numRows, byte numCols);
+	Keypad(const char *userKeymap, const byte *row, const byte *col, byte numRows, byte numCols);
 
 	virtual void pin_mode(byte pinNum, byte mode) { pinMode(pinNum, mode); }
 	virtual void pin_write(byte pinNum, boolean level) { digitalWrite(pinNum, level); }
@@ -100,7 +100,7 @@ public:
 	char getKey();
 	bool getKeys();
 	KeyState getState();
-	void begin(char *userKeymap);
+	void begin(const char *userKeymap);
 	void setDebounceTime(uint);
 	void setHoldTime(uint);
 	void setScanTime(uint);
@@ -113,9 +113,9 @@ public:
 
 private:
 	unsigned long startTime;
-	char *keymap;
-    byte *rowPins;
-    byte *columnPins;
+	const char *keymap;
+    const byte *rowPins;
+    const byte *columnPins;
 	KeypadSize sizeKpd;
 	uint debounceTime;
 	uint holdTime;
